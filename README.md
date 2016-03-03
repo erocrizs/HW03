@@ -4,3 +4,4 @@ Make a bullet hell game featuring 1 extra/special/final boss common bullet patte
 
 1. To aid it play testing, the player has infinite lives (scoring is based on how many times the player was hit)
 2. Choose any player bullet pattern.
+3. The bullet pattern should resemble the original as close as possible.
