@@ -22,6 +22,15 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="MainLoop.cpp" />
+		<Unit filename="SplashState.cpp" />
+		<Unit filename="State.cpp" />
+		<Unit filename="State.h" />
+		<Unit filename="StateManager.cpp" />
+		<Unit filename="StateManager.h" />
+		<Unit filename="StateSubclass.h" />
+		<Unit filename="Vector2Plus.cpp" />
+		<Unit filename="Vector2Plus.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
