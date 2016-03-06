@@ -6,10 +6,11 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Touhou Clone", sf::Style::Close);
+    sf::RenderWindow window(sf::VideoMode(800, 800), "Touhou Clone", sf::Style::Close);
 
     StateManager sm;
     sm.addState(new SplashState(&sm));
+    sm.addState(new GameState(&sm));
     sm.push(0);
 
     sf::Clock clock;

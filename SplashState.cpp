@@ -35,8 +35,7 @@ void SplashState::onActivate(std::string pass) {
 
 void SplashState::handleInput(const vec2i& mouse) {
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-    {
-    }
+    sm->push(1);
 }
 
 void SplashState::update(float dt) {

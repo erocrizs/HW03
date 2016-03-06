@@ -1,0 +1,22 @@
+#ifndef ENTITY_H_INCLUDED
+#define ENTITY_H_INCLUDED
+
+#include <SFML/Graphics.hpp>
+#include "Vector2Plus.h"
+#include "MoveBehavior.h"
+#include "ShootBehavior.h"
+
+class Entity {
+    friend class MoveBehavior;
+protected:
+    BulletStage* stage;
+    vec2f position;
+    vec2f dimension;
+    vec2f direction;
+    float speed;
+public:
+    virtual void update(float dt) = 0;
+    virtual void draw(sf::RenderWindow& window) const = 0;
+};
+
+#endif // ENTITY_H_INCLUDED

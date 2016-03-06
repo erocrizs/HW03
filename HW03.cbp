@@ -22,7 +22,13 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="BulletStage.cpp" />
+		<Unit filename="BulletStage.h" />
+		<Unit filename="Entity.h" />
+		<Unit filename="GameState.cpp" />
 		<Unit filename="MainLoop.cpp" />
+		<Unit filename="MoveBehavior.h" />
+		<Unit filename="ShootBehavior.h" />
 		<Unit filename="SplashState.cpp" />
 		<Unit filename="State.cpp" />
 		<Unit filename="State.h" />

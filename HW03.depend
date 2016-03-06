@@ -1,9 +1,10 @@
 # depslib dependency file v1.0
-1457271130 source:c:\users\aemiel\documents\github\hw03\splashstate.cpp
+1457275419 source:c:\users\aemiel\documents\github\hw03\splashstate.cpp
 	"StateSubclass.h"
 
-1457274690 c:\users\aemiel\documents\github\hw03\statesubclass.h
+1457276770 c:\users\aemiel\documents\github\hw03\statesubclass.h
 	"StateManager.h"
+	"BulletStage.h"
 
 1457272586 c:\users\aemiel\documents\github\hw03\statemanager.h
 	<vector>
@@ -21,7 +22,7 @@
 	"StateManager.h"
 	<cassert>
 
-1457272586 source:c:\users\aemiel\documents\github\hw03\mainloop.cpp
+1457276961 source:c:\users\aemiel\documents\github\hw03\mainloop.cpp
 	"StateSubclass.h"
 	"Vector2Plus.h"
 	<iostream>
@@ -32,4 +33,15 @@
 
 1457272586 source:c:\users\aemiel\documents\github\hw03\vector2plus.cpp
 	"Vector2Plus.h"
+
+1457278723 source:c:\users\aemiel\documents\github\hw03\bulletstage.cpp
+	"BulletStage.h"
+
+1457280966 c:\users\aemiel\documents\github\hw03\bulletstage.h
+	<vector>
+	<SFML/Graphics.hpp>
+	"Vector2Plus.h"
+
+1457278492 source:c:\users\aemiel\documents\github\hw03\gamestate.cpp
+	"StateSubclass.h"
 

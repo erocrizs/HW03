@@ -2,6 +2,7 @@
 #define STATESUBCLASS_H_INCLUDED
 
 #include "StateManager.h"
+#include "BulletStage.h"
 
 class SplashState: public State {
 private:
@@ -15,6 +16,19 @@ private:
     sf::Text playText;
 public:
     SplashState(StateManager* sm);
+    void onActivate(std::string pass) override;
+    void handleInput(const vec2i& mouse) override;
+    void update(float dt) override;
+    void render(sf::RenderWindow& window) override;
+};
+
+class GameState: public State {
+private:
+    StateManager* sm;
+    bool is_active;
+    BulletStage stage;
+public:
+    GameState(StateManager* sm);
     void onActivate(std::string pass) override;
     void handleInput(const vec2i& mouse) override;
     void update(float dt) override;
