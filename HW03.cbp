@@ -9,14 +9,11 @@
 			<Target title="Release">
 				<Option output="bin/Release/HW03" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
-				<Option type="1" />
+				<Option type="0" />
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
 				</Compiler>
-				<Linker>
-					<Add option="-s" />
-				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
@@ -28,6 +25,8 @@
 		<Unit filename="GameState.cpp" />
 		<Unit filename="MainLoop.cpp" />
 		<Unit filename="MoveBehavior.h" />
+		<Unit filename="Player.cpp" />
+		<Unit filename="Player.h" />
 		<Unit filename="ShootBehavior.h" />
 		<Unit filename="SplashState.cpp" />
 		<Unit filename="State.cpp" />

@@ -5,7 +5,9 @@
 #include "Vector2Plus.h"
 #include "MoveBehavior.h"
 #include "ShootBehavior.h"
+#include <iostream>
 
+class BulletStage;
 class Entity {
     friend class MoveBehavior;
 protected:
@@ -15,6 +17,7 @@ protected:
     vec2f direction;
     float speed;
 public:
+    Entity(BulletStage* stage): stage(stage) {}
     virtual void update(float dt) = 0;
     virtual void draw(sf::RenderWindow& window) const = 0;
 };

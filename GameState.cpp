@@ -1,4 +1,5 @@
 #include "StateSubclass.h"
+#include <iostream>
 
 GameState::GameState(StateManager* sm): sm(sm) {
 

@@ -1,13 +1,11 @@
 #include "BulletStage.h"
+#include <iostream>
 
-BulletStage::BulletStage(): base(vec2f(5, 5)) {
-    borderBox.setFillColor(sf::Color(214, 153, 255));
-    borderBox.setPosition(0, 0);
-    borderBox.setSize(vec2f(600, 800));
-
+BulletStage::BulletStage(): base(vec2f(255, 355)),  height(700), width(500), player(this) {
     innerBox.setFillColor(sf::Color::Black);
-    innerBox.setPosition(5, 5);
-    innerBox.setSize(vec2f(590, 790));
+    innerBox.setSize(vec2f(width-10, height-10));
+    innerBox.setOrigin(base-vec2f(5, 5));
+    innerBox.setPosition(base);
 }
 
 void BulletStage::handleInput(const vec2i& mouse) {
@@ -15,10 +13,10 @@ void BulletStage::handleInput(const vec2i& mouse) {
 }
 
 void BulletStage::update(float dt) {
-
+    player.update(dt);
 }
 
 void BulletStage::render(sf::RenderWindow& window) const {
-    window.draw(borderBox);
     window.draw(innerBox);
+    player.draw(window);
 }

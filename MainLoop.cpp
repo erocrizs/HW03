@@ -6,7 +6,7 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(800, 800), "Touhou Clone", sf::Style::Close);
+    sf::RenderWindow window(sf::VideoMode(700, 700), "Touhou Clone", sf::Style::Close);
 
     StateManager sm;
     sm.addState(new SplashState(&sm));

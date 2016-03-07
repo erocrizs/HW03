@@ -3,11 +3,8 @@
 
 class Entity;
 class MoveBehavior {
-private:
-    Entity* ent;
 public:
-    MoveBehavior(Entity* ent): ent(ent) {}
-    virtual void operator() (Entity& e) = 0;
+    virtual void operator() () = 0;
 };
 
 #endif // MOVEBEHAVIOR_H_INCLUDED
