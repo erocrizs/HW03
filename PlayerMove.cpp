@@ -32,5 +32,4 @@ void PlayerMove::operator() (Entity* ent, float dt) {
     direction *= speed;
     vec2f position = ent->getPosition() + (direction*dt);
     ent->setPosition(position);
-    std::cout << "Expectations: " << ent->getPosition().x << ", " << ent->getPosition().y << std::endl;
 }

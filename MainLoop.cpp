@@ -14,7 +14,6 @@ int main()
     sm.push(0);
 
     sf::Clock clock;
-    float lag = 0;
     while(window.isOpen())
     {
         clock.restart();
@@ -32,11 +31,8 @@ int main()
         window.clear();
         sm.render(window);
         window.display();
-
-        float timeSpent = lag + clock.getElapsedTime().asSeconds();
-        if(timeSpent>SPF)
-            lag = timeSpent-SPF;
-        else
+        float timeSpent = clock.getElapsedTime().asSeconds();
+        if(timeSpent<=SPF)
             sf::sleep(sf::seconds(SPF-timeSpent));
     }
 }

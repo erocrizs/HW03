@@ -3,8 +3,10 @@
 #include "PlayerMove.h"
 #include <iostream>
 
-Player::Player(BulletStage* stage): Entity(stage), move(PlayerMove::getInstance()), position(stage->getBase()+vec2f(0, 200)), dimension(vec2f(20, 30)), speed(300)
+Player::Player(BulletStage* stage): Entity(stage), move(PlayerMove::getInstance()), position(stage->getPosition()+vec2f(0, 200)), dimension(vec2f(20, 30)), speed(300)
 {
+    this->stage = stage;
+
     hitbox.setRadius(3);
     hitbox.setOrigin(3, 3);
     hitbox.setFillColor(sf::Color::White);
@@ -16,9 +18,9 @@ Player::Player(BulletStage* stage): Entity(stage), move(PlayerMove::getInstance(
 
 void Player::update(float dt) {
     move(this, dt);
+    position = this->stage->clamp(position, dimension);
     hitbox.setPosition(position);
     showbox.setPosition(position);
-    std::cout << "Reality: " << position.x << ", " << position.y << std::endl;
 }
 
 void Player::draw(sf::RenderWindow& window) const {
