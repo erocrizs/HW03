@@ -20,6 +20,8 @@ bool operator== (const vec2f a, const vec2f b);
 bool operator== (const vec2i a, const vec2i b);
 
 template<typename T>
-float mag(const vec2<T> a);
+float mag(const vec2<T> a) {
+    return hypot(a.x, a.y);
+}
 
 #endif // VECTOR2PLUS_H_INCLUDED

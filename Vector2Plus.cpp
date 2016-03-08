@@ -18,7 +18,3 @@ bool operator== (const vec2i a, const vec2i b) {
     return (a.x==b.x && a.y==b.y);
 }
 
-template<typename T>
-float mag(const vec2<T> a) {
-    return hypot(a.x, a.y);
-}
