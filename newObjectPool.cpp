@@ -1,8 +1,11 @@
+#include <iostream>
+#include <assert.h>
+
 template <class T>
 class GenericPool
 {
 public:
-    GenericPool::GenericPool()
+    GenericPool<T>()
     {
         //the first one is available
         firstAvailable = &pool_[0];
@@ -14,22 +17,24 @@ public:
         }
 
         //The last one terminate the list
-        pool_[POOL_SIZE - 1].setNext(NULL);
+        pool_[POOL_SIZE - 1].setNext(nullptr);
     }
 
-    void GenericPool::create(int lifetime)
+    //create a new T object
+    //
+    void create(float x1, float y1, float xVel1, float yVel1, int lifetime)
     {
         //Check that the pool is not full
-        assert(firstAvailable != NULL);
+        assert(firstAvailable != nullptr);
 
         // Remove it from the available list
         T* newT = firstAvailable;
         firstAvailable = newT->getNext();
 
-        newT->init(lifetime);
+        newT->init(x1, y1, xVel1, yVel1, lifetime);
     }
 
-    void GenericPool::animate()
+    void animate()
     {
         for(int i = 0; i < POOL_SIZE; i++)
         {
@@ -64,19 +69,27 @@ public:
     //Where the constructor parameters will be
     //such as Vector2 positions
     //lifetime is required for the object pool, you can put anything else besides that
-    void init(int lifetime)
+    void init(float x1, float y1, float xVel1, float yVel1, int lifetime)
     {
+        std::cout << " Creating new Sample" << std::endl;
+        state.live.x = x1;
+        state.live.y = y1;
+        state.live.xVel = xVel1;
+        state.live.yVel = yVel1;
         framesLeft = lifetime;
     }
     //Animate function
     //basically where you do the computations of an object
     //this will return a bool, which basically checks if it is in use or not
-    bool Sample::animate() //originally void
+    bool animate() //originally void
     {
         if(!inUse()) return false;
 
         framesLeft--;
+        state.live.x += state.live.xVel;
+        state.live.y += state.live.yVel;
 
+        std::cout << "X: " << state.live.x << "Y: " << state.live.y << " Frames Left: " << framesLeft << std::endl;
         return framesLeft == 0;
     }
 
@@ -89,15 +102,36 @@ private:
     int framesLeft;
 
     //basically, state will be composed of struct live, which contains the parameters specific to that class
+    //and a pointer to the next instance of class
     union
     {
         //When in use
         struct
         {
-            //put here any variables just like you would in the init() function
-            //if the sample was a bullet, then put here coordinates, for example
+            float x, y;
+            float xVel, yVel;
         }live;
 
         Sample *next;
     } state;
 };
+
+int main()
+{
+    GenericPool<Sample> sp;
+
+    //Create the samples
+    sp.create(1, 2, 3, 4, 5);
+    sp.create(1, 2, 3, 4, 5);
+    sp.create(1, 2, 3, 4, 5);
+    sp.create(1, 2, 3, 4, 5);
+    sp.create(1, 2, 3, 4, 5);
+    sp.create(1, 2, 3, 4, 5);
+
+    while(true)
+    {
+        sp.animate();
+    }
+
+    return 0;
+}
