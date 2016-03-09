@@ -29,4 +29,9 @@ template<typename T>
 float getRadians(const vec2<T>& a) {
     return atan2(a.y, a.x)-(acos(-1)/2.0);
 }
+
+template<typename T>
+float getDegrees(const vec2<T>& a) {
+    return getRadians<T>(a)*180.0/acos(-1);
+}
 #endif // VECTOR2PLUS_H_INCLUDED

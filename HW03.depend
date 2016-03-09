@@ -1,72 +1,72 @@
 # depslib dependency file v1.0
-1457481826 source:c:\users\aemiel\documents\github\hw03\splashstate.cpp
+1457550765 source:c:\users\aemiel\documents\github\hw03\splashstate.cpp
 	"StateSubclass.h"
 
-1457481826 c:\users\aemiel\documents\github\hw03\statesubclass.h
+1457550766 c:\users\aemiel\documents\github\hw03\statesubclass.h
 	"StateManager.h"
 	"BulletStage.h"
 
-1457282222 c:\users\aemiel\documents\github\hw03\statemanager.h
+1457272586 c:\users\aemiel\documents\github\hw03\statemanager.h
 	<vector>
 	"State.h"
 	"Vector2Plus.h"
 
-1457282222 c:\users\aemiel\documents\github\hw03\state.h
+1457272586 c:\users\aemiel\documents\github\hw03\state.h
 	<SFML/Graphics.hpp>
 	"Vector2Plus.h"
 
-1457282222 source:c:\users\aemiel\documents\github\hw03\state.cpp
+1457272586 source:c:\users\aemiel\documents\github\hw03\state.cpp
 	"StateManager.h"
 
-1457282222 source:c:\users\aemiel\documents\github\hw03\statemanager.cpp
+1457272586 source:c:\users\aemiel\documents\github\hw03\statemanager.cpp
 	"StateManager.h"
 	<cassert>
 
-1457482628 source:c:\users\aemiel\documents\github\hw03\mainloop.cpp
+1457550765 source:c:\users\aemiel\documents\github\hw03\mainloop.cpp
 	"StateSubclass.h"
 	"Vector2Plus.h"
 	<iostream>
 
-1457494360 c:\users\aemiel\documents\github\hw03\vector2plus.h
+1457551049 c:\users\aemiel\documents\github\hw03\vector2plus.h
 	<SFML/System.hpp>
 	<cmath>
 
-1457481826 source:c:\users\aemiel\documents\github\hw03\vector2plus.cpp
+1457550766 source:c:\users\aemiel\documents\github\hw03\vector2plus.cpp
 	"Vector2Plus.h"
 
-1457512865 source:c:\users\aemiel\documents\github\hw03\bulletstage.cpp
+1457550765 source:c:\users\aemiel\documents\github\hw03\bulletstage.cpp
 	"BulletStage.h"
 	<cmath>
 	<iostream>
 
-1457487378 c:\users\aemiel\documents\github\hw03\bulletstage.h
+1457550765 c:\users\aemiel\documents\github\hw03\bulletstage.h
 	<vector>
 	<SFML/Graphics.hpp>
 	"Vector2Plus.h"
 	"Player.h"
 	"PlayerBullet.h"
 
-1457481826 source:c:\users\aemiel\documents\github\hw03\gamestate.cpp
+1457550765 source:c:\users\aemiel\documents\github\hw03\gamestate.cpp
 	"StateSubclass.h"
 	<iostream>
 
-1457510927 c:\users\aemiel\documents\github\hw03\player.h
+1457550765 c:\users\aemiel\documents\github\hw03\player.h
 	"Entity.h"
 	"PlayerMove.h"
 	"PlayerShoot.h"
 
-1457509953 c:\users\aemiel\documents\github\hw03\entity.h
+1457550765 c:\users\aemiel\documents\github\hw03\entity.h
 	<SFML/Graphics.hpp>
 	"Vector2Plus.h"
 	"MoveBehavior.h"
 	"ShootBehavior.h"
 	<iostream>
 
-1457481826 c:\users\aemiel\documents\github\hw03\movebehavior.h
+1457550765 c:\users\aemiel\documents\github\hw03\movebehavior.h
 
-1457495412 c:\users\aemiel\documents\github\hw03\shootbehavior.h
+1457550765 c:\users\aemiel\documents\github\hw03\shootbehavior.h
 
-1457512288 source:c:\users\aemiel\documents\github\hw03\player.cpp
+1457550765 source:c:\users\aemiel\documents\github\hw03\player.cpp
 	"Player.h"
 	"BulletStage.h"
 	"PlayerMove.h"
@@ -74,42 +74,42 @@
 	<cstdlib>
 	<SFML/Graphics.hpp>
 
-1457481826 c:\users\aemiel\documents\github\hw03\playermove.h
+1457550765 c:\users\aemiel\documents\github\hw03\playermove.h
 	"MoveBehavior.h"
 
-1457481826 source:c:\users\aemiel\documents\github\hw03\playermove.cpp
+1457550765 source:c:\users\aemiel\documents\github\hw03\playermove.cpp
 	"PlayerMove.h"
 	"Vector2Plus.h"
 	<SFML/Graphics.hpp>
 	"Entity.h"
 	<iostream>
 
-1457493607 c:\users\aemiel\documents\github\hw03\playerbullet.h
+1457550765 c:\users\aemiel\documents\github\hw03\playerbullet.h
 	"Entity.h"
 
-1457498331 source:c:\users\aemiel\documents\github\hw03\straightmovement.cpp
+1457550766 source:c:\users\aemiel\documents\github\hw03\straightmovement.cpp
 	"StraightMovement.h"
 	"Vector2Plus.h"
 	<SFML/Graphics.hpp>
 	"Entity.h"
 	<iostream>
 
-1457497685 c:\users\aemiel\documents\github\hw03\straightmovement.h
+1457550766 c:\users\aemiel\documents\github\hw03\straightmovement.h
 	"MoveBehavior.h"
 
-1457512970 source:c:\users\aemiel\documents\github\hw03\basicplayerbullet.cpp
+1457551011 source:c:\users\aemiel\documents\github\hw03\basicplayerbullet.cpp
 	"BasicPlayerBullet.h"
 	"BulletStage.h"
 
-1457510038 c:\users\aemiel\documents\github\hw03\basicplayerbullet.h
+1457550765 c:\users\aemiel\documents\github\hw03\basicplayerbullet.h
 	"PlayerBullet.h"
 	"StraightMovement.h"
 	<SFML/Graphics.hpp>
 
-1457510398 c:\users\aemiel\documents\github\hw03\playershoot.h
+1457550765 c:\users\aemiel\documents\github\hw03\playershoot.h
 	"ShootBehavior.h"
 
-1457512818 source:c:\users\aemiel\documents\github\hw03\playershoot.cpp
+1457550887 source:c:\users\aemiel\documents\github\hw03\playershoot.cpp
 	"BasicPlayerBullet.h"
 	"PlayerShoot.h"
 	"BulletStage.h"

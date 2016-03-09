@@ -18,7 +18,7 @@ BasicPlayerBullet::BasicPlayerBullet(BulletStage* stage, vec2f position, vec2f d
 
 void BasicPlayerBullet::update(float dt) {
     move(this, dt);
-    box.setRotation(getRadians(direction));
+    box.setRotation(getDegrees(direction));
     box.setPosition(position);
 }
 
