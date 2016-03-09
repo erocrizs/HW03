@@ -19,6 +19,8 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="BasicPlayerBullet.cpp" />
+		<Unit filename="BasicPlayerBullet.h" />
 		<Unit filename="BulletStage.cpp" />
 		<Unit filename="BulletStage.h" />
 		<Unit filename="Entity.h" />
@@ -27,8 +29,11 @@
 		<Unit filename="MoveBehavior.h" />
 		<Unit filename="Player.cpp" />
 		<Unit filename="Player.h" />
+		<Unit filename="PlayerBullet.h" />
 		<Unit filename="PlayerMove.cpp" />
 		<Unit filename="PlayerMove.h" />
+		<Unit filename="PlayerShoot.cpp" />
+		<Unit filename="PlayerShoot.h" />
 		<Unit filename="ShootBehavior.h" />
 		<Unit filename="SplashState.cpp" />
 		<Unit filename="State.cpp" />
@@ -36,6 +41,8 @@
 		<Unit filename="StateManager.cpp" />
 		<Unit filename="StateManager.h" />
 		<Unit filename="StateSubclass.h" />
+		<Unit filename="StraightMovement.cpp" />
+		<Unit filename="StraightMovement.h" />
 		<Unit filename="Vector2Plus.cpp" />
 		<Unit filename="Vector2Plus.h" />
 		<Extensions>

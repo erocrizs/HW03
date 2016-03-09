@@ -3,6 +3,7 @@
 
 #include <SFML/System.hpp>
 #include <cmath>
+
 #define EPS 1e-7
 template<class T>
 using vec2 = sf::Vector2<T>;
@@ -24,4 +25,8 @@ float mag(const vec2<T> a) {
     return hypot(a.x, a.y);
 }
 
+template<typename T>
+float getRadians(const vec2<T>& a) {
+    return atan2(a.y, a.x)-(acos(-1)/2.0);
+}
 #endif // VECTOR2PLUS_H_INCLUDED

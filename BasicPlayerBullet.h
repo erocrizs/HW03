@@ -1,25 +1,22 @@
-#ifndef PLAYER_H_INCLUDED
-#define PLAYER_H_INCLUDED
+#ifndef BASICPLAYERBULLET_H_INCLUDED
+#define BASICPLAYERBULLET_H_INCLUDED
 
-#include "Entity.h"
-#include "PlayerMove.h"
-#include "PlayerShoot.h"
+#include "PlayerBullet.h"
+#include "StraightMovement.h"
+#include <SFML/Graphics.hpp>
 
-class BulletStage;
-class Player: public Entity {
+class BasicPlayerBullet: public PlayerBullet {
     friend class MoveBehavior;
-    float shootGap;
-    float shootCount;
 private:
     BulletStage* stage;
-    PlayerMove move;
-    PlayerShoot shoot;
-    sf::CircleShape hitbox;
-    sf::RectangleShape showbox;
-    vec2f position, dimension, direction;
-    float speed;
+    StraightMovement move;
+    vec2f position;
+    vec2f dimension;
+    vec2f direction;
+    float speed, damage;
+    sf::RectangleShape box;
 public:
-    Player(BulletStage* stage);
+    BasicPlayerBullet(BulletStage* stage, vec2f position, vec2f direction);
     void update(float dt) override;
     void draw(sf::RenderWindow& window) const override;
     virtual void setDirection(const vec2f direction) {
@@ -42,4 +39,4 @@ public:
     }
 };
 
-#endif // PLAYER_H_INCLUDED
+#endif // BASICPLAYERBULLET_H_INCLUDED

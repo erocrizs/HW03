@@ -23,15 +23,11 @@ public:
     virtual void setDirection(const vec2f direction) {
         this->direction = direction;
     }
-    virtual float getSpeed() const {
-        return speed;
-    }
-    virtual vec2f getPosition() const {
-        return position;
-    }
-    virtual void setPosition(const vec2f position) {
-        this->position = position;
-    }
+    virtual float getSpeed() const = 0;
+    virtual vec2f getPosition() const = 0;
+    virtual void setPosition(const vec2f position) = 0;
+    virtual vec2f getDirection() const = 0;
+    virtual vec2f getDimension() const = 0;
 };
 
 #endif // ENTITY_H_INCLUDED

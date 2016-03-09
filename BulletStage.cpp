@@ -15,11 +15,25 @@ void BulletStage::handleInput(const vec2i& mouse) {
 
 void BulletStage::update(float dt) {
     player.update(dt);
+    for(int i=0; i<player_bullet.size(); i++)
+    {
+        PlayerBullet* pb = player_bullet[i];
+        pb->update(dt);
+        vec2f pos = pb->getPosition();
+        vec2f margin = pb->getDimension() * -2.0f;
+        if(clamp(pos, margin)!=pos) {
+            delete player_bullet[i];
+            player_bullet.erase(player_bullet.begin()+i);
+            i--;
+        }
+    }
 }
 
 void BulletStage::render(sf::RenderWindow& window) const {
     window.draw(innerBox);
     player.draw(window);
+    for(PlayerBullet* pb: player_bullet)
+        pb->draw(window);
 }
 
 
@@ -32,4 +46,8 @@ vec2f BulletStage::clamp(const vec2f point, const vec2f dimension) const {
     float trueX = std::min(right, std::max(left, point.x));
     float trueY = std::min(bottom, std::max(top, point.y));
     return vec2f(trueX, trueY);
+}
+
+void BulletStage::addPlayerBullet(PlayerBullet* pb) {
+    player_bullet.push_back(pb);
 }
