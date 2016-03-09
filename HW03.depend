@@ -34,7 +34,7 @@
 1457550766 source:c:\users\aemiel\documents\github\hw03\vector2plus.cpp
 	"Vector2Plus.h"
 
-1457554244 source:c:\users\aemiel\documents\github\hw03\bulletstage.cpp
+1457559118 source:c:\users\aemiel\documents\github\hw03\bulletstage.cpp
 	"BulletStage.h"
 	<cmath>
 	<iostream>
@@ -117,9 +117,10 @@
 	"PlayerShoot.h"
 	"BulletStage.h"
 
-1457552823 c:\users\aemiel\documents\github\hw03\enemy.h
+1457560996 c:\users\aemiel\documents\github\hw03\enemy.h
 	"Entity.h"
 	"EnemyShoot.h"
+	"BasicEnemyMove.h"
 
 1457558719 source:c:\users\aemiel\documents\github\hw03\enemy.cpp
 	"Enemy.h"
@@ -148,4 +149,16 @@
 	"BasicEnemyBullet.h"
 	"EnemyShoot.h"
 	"BulletStage.h"
+
+1457560891 source:c:\users\aemiel\documents\github\hw03\basicenemymove.cpp
+	"BasicEnemyMove.h"
+	"Vector2Plus.h"
+	<SFML/Graphics.hpp>
+	"Entity.h"
+	<iostream>
+	<algorithm>
+
+1457560837 c:\users\aemiel\documents\github\hw03\basicenemymove.h
+	"MoveBehavior.h"
+	"Vector2Plus.h"
 

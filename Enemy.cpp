@@ -8,10 +8,10 @@ Enemy::Enemy(BulletStage* stage):
     Entity(stage),
     shootGap(1/10.0),
     shootCount(0),
-    //move(PlayerMove::getInstance()),
+    move(BasicEnemyMove::getInstance()),
     shoot(EnemyShoot::getInstance(shootGap)),
     position(stage->getPosition()+vec2f(0, -200)),
-    dimension(vec2f(20, 30)), speed(200)
+    dimension(vec2f(20, 30)), speed(50)
 {
     this->stage = stage;
 
@@ -28,7 +28,7 @@ void Enemy::update(float dt) {
         shootCount = 0;
     }
 
-    //move(this, dt);
+    move(this, dt);
     position = this->stage->clamp(position, dimension);
     //hitbox.setPosition(position);
     showbox.setPosition(position);

@@ -3,6 +3,7 @@
 
 #include "Entity.h"
 #include "EnemyShoot.h"
+#include "BasicEnemyMove.h"
 
 class BulletStage;
 class Enemy: public Entity {
@@ -12,6 +13,7 @@ private:
     float shootCount;
     BulletStage* stage;
     EnemyShoot shoot;
+    BasicEnemyMove move;
     sf::RectangleShape showbox;
     vec2f position, dimension, direction;
     float speed;

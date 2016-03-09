@@ -19,10 +19,19 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="BasicEnemyBullet.cpp" />
+		<Unit filename="BasicEnemyBullet.h" />
+		<Unit filename="BasicEnemyMove.cpp" />
+		<Unit filename="BasicEnemyMove.h" />
 		<Unit filename="BasicPlayerBullet.cpp" />
 		<Unit filename="BasicPlayerBullet.h" />
 		<Unit filename="BulletStage.cpp" />
 		<Unit filename="BulletStage.h" />
+		<Unit filename="Enemy.cpp" />
+		<Unit filename="Enemy.h" />
+		<Unit filename="EnemyBullet.h" />
+		<Unit filename="EnemyShoot.cpp" />
+		<Unit filename="EnemyShoot.h" />
 		<Unit filename="Entity.h" />
 		<Unit filename="GameState.cpp" />
 		<Unit filename="MainLoop.cpp" />
