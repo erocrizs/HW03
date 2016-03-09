@@ -13,7 +13,7 @@ private:
     vec2f position;
     vec2f dimension;
     vec2f direction;
-    float speed, damage;
+    float speed, damage, spin;
     sf::RectangleShape box;
 public:
     BasicPlayerBullet(BulletStage* stage, vec2f position, vec2f direction);

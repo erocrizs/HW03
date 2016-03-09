@@ -1,25 +1,22 @@
-#ifndef PLAYER_H_INCLUDED
-#define PLAYER_H_INCLUDED
+#ifndef ENEMY_H_INCLUDED
+#define ENEMY_H_INCLUDED
 
 #include "Entity.h"
-#include "PlayerMove.h"
-#include "PlayerShoot.h"
+#include "EnemyShoot.h"
 
 class BulletStage;
-class Player: public Entity {
+class Enemy: public Entity {
     friend class MoveBehavior;
 private:
     float shootGap;
     float shootCount;
     BulletStage* stage;
-    PlayerMove move;
-    PlayerShoot shoot;
-    sf::CircleShape hitbox;
+    EnemyShoot shoot;
     sf::RectangleShape showbox;
     vec2f position, dimension, direction;
     float speed;
 public:
-    Player(BulletStage* stage);
+    Enemy(BulletStage* stage);
     void update(float dt) override;
     void draw(sf::RenderWindow& window) const override;
     virtual void setDirection(const vec2f direction) {
@@ -42,4 +39,4 @@ public:
     }
 };
 
-#endif // PLAYER_H_INCLUDED
+#endif // ENEMY_H_INCLUDED

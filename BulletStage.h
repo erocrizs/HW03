@@ -6,6 +6,8 @@
 #include "Vector2Plus.h"
 #include "Player.h"
 #include "PlayerBullet.h"
+#include "EnemyBullet.h"
+#include "Enemy.h"
 
 class BulletStage {
 private:
@@ -13,7 +15,9 @@ private:
     vec2f dimension;
     vec2f position;
     Player player;
+    Enemy enemy;
     std::vector<PlayerBullet*> player_bullet;
+    std::vector<EnemyBullet*> enemy_bullet;
 public:
     BulletStage();
     void handleInput(const vec2i& mouse);
@@ -23,6 +27,7 @@ public:
     vec2f getPosition() {return position;}
     vec2f clamp(const vec2f point, const vec2f dimension) const;
     void addPlayerBullet(PlayerBullet* pb);
+    void addEnemyBullet(EnemyBullet* pb);
 };
 
 #endif // BULLETSTAGE_H_INCLUDED

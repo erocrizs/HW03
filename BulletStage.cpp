@@ -2,7 +2,7 @@
 #include <cmath>
 #include <iostream>
 
-BulletStage::BulletStage(): dimension(vec2f(490, 690)), position(vec2f(5, 5) + dimension/2.0f), player(this) {
+BulletStage::BulletStage(): dimension(vec2f(490, 690)), position(vec2f(5, 5) + dimension/2.0f), player(this), enemy(this) {
     innerBox.setFillColor(sf::Color::Black);
     innerBox.setSize(dimension);
     innerBox.setOrigin(dimension/2.0f);
@@ -14,6 +14,7 @@ void BulletStage::handleInput(const vec2i& mouse) {
 }
 
 void BulletStage::update(float dt) {
+    enemy.update(dt);
     player.update(dt);
     for(int i=0; i<player_bullet.size(); i++)
     {
@@ -27,13 +28,33 @@ void BulletStage::update(float dt) {
             i--;
         }
     }
+
+    for(int i=0; i<enemy_bullet.size(); i++)
+    {
+        EnemyBullet* eb = enemy_bullet[i];
+        eb->update(dt);
+        vec2f pos = eb->getPosition();
+        vec2f margin = eb->getDimension() * -2.0f;
+        if(clamp(pos, margin)!=pos) {
+            delete enemy_bullet[i];
+            enemy_bullet.erase(enemy_bullet.begin()+i);
+            i--;
+        }
+    }
 }
 
 void BulletStage::render(sf::RenderWindow& window) const {
     window.draw(innerBox);
-    player.draw(window);
+
+    enemy.draw(window);
+
     for(PlayerBullet* pb: player_bullet)
         pb->draw(window);
+
+    player.draw(window);
+
+    for(EnemyBullet* eb: enemy_bullet)
+        eb->draw(window);
 }
 
 
@@ -50,4 +71,8 @@ vec2f BulletStage::clamp(const vec2f point, const vec2f dimension) const {
 
 void BulletStage::addPlayerBullet(PlayerBullet* pb) {
     player_bullet.push_back(pb);
+}
+
+void BulletStage::addEnemyBullet(EnemyBullet* pb) {
+    enemy_bullet.push_back(pb);
 }

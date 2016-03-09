@@ -1,13 +1,15 @@
 #include "BasicPlayerBullet.h"
 #include "BulletStage.h"
+#include "Vector2Plus.h"
 
 BasicPlayerBullet::BasicPlayerBullet(BulletStage* stage, vec2f position, vec2f direction):
     PlayerBullet(stage),
     move(StraightMovement::getInstance()),
     position(position),
-    dimension(vec2f(10, 20)),
+    dimension(vec2f(15, 15)),
     direction(direction),
-    speed(600) {
+    speed(500),
+    spin(0) {
     this->position = position;
     this->stage = stage;
 
@@ -17,8 +19,10 @@ BasicPlayerBullet::BasicPlayerBullet(BulletStage* stage, vec2f position, vec2f d
 }
 
 void BasicPlayerBullet::update(float dt) {
+    spin += dt*360.0*2;
+    if(spin-360>-EPS) spin -= 360;
     move(this, dt);
-    box.setRotation(getDegrees(direction));
+    box.setRotation(spin);
     box.setPosition(position);
 }
 

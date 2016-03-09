@@ -1,9 +1,8 @@
-#ifndef PLAYERBULLET_H_INCLUDED
-#define PLAYERBULLET_H_INCLUDED
+#ifndef ENEMYBULLET_H_INCLUDED
+#define ENEMYBULLET_H_INCLUDED
 
 #include "Entity.h"
-
-class PlayerBullet: public Entity {
+class EnemyBullet: public Entity {
     friend class MoveBehavior;
 protected:
     BulletStage* stage;
@@ -12,7 +11,7 @@ protected:
     vec2f direction;
     float speed, damage;
 public:
-    PlayerBullet(BulletStage* stage): Entity(stage) {}
+    EnemyBullet(BulletStage* stage): Entity(stage) {}
     virtual void update(float dt) override = 0;
     virtual void draw(sf::RenderWindow& window) const override = 0;
 
@@ -23,5 +22,4 @@ public:
     virtual vec2f getDimension() const = 0;
 };
 
-
-#endif // PLAYERBULLET_H_INCLUDED
+#endif // ENEMYBULLET_H_INCLUDED
