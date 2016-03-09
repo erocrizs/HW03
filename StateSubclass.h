@@ -27,6 +27,9 @@ private:
     StateManager* sm;
     bool is_active;
     BulletStage stage;
+    sf::RectangleShape topBorder, bottomBorder, leftBorder, rightBorder;
+    sf::Font deathFont, countFont;
+    sf::Text deathText, countText;
 public:
     GameState(StateManager* sm);
     void onActivate(std::string pass) override;
