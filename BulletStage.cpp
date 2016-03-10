@@ -46,8 +46,6 @@ void BulletStage::update(float dt) {
 void BulletStage::render(sf::RenderWindow& window) const {
     window.draw(innerBox);
 
-    enemy.draw(window);
-
     for(PlayerBullet* pb: player_bullet)
         pb->draw(window);
 
@@ -55,6 +53,8 @@ void BulletStage::render(sf::RenderWindow& window) const {
 
     for(EnemyBullet* eb: enemy_bullet)
         eb->draw(window);
+
+    enemy.draw(window);
 }
 
 

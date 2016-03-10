@@ -15,8 +15,9 @@ private:
     EnemyShoot shoot;
     BasicEnemyMove move;
     sf::RectangleShape showbox;
+    sf::RectangleShape healthBar;
     vec2f position, dimension, direction;
-    float speed;
+    float speed, remHP, maxHP;
 public:
     Enemy(BulletStage* stage);
     void update(float dt) override;
@@ -38,6 +39,15 @@ public:
     }
     virtual vec2f getDimension() const {
         return dimension;
+    }
+    float getRemainingHP() const {
+        return remHP;
+    }
+    float getTotalHP() const {
+        return maxHP;
+    }
+    void getDamaged(float d) {
+        remHP -= d;
     }
 };
 
