@@ -1,6 +1,7 @@
 #include "StateSubclass.h"
+#include <sstream>
 
-SplashState::SplashState(StateManager* sm): sm(sm) {
+SplashState::SplashState(StateManager* sm): State(sm), sm(sm) {
     titleFont.loadFromFile("asset/font/yuyuko.ttf");
     subtitleFont.loadFromFile("asset/font/CFSamuraiBob.ttf");
 
@@ -11,13 +12,13 @@ SplashState::SplashState(StateManager* sm): sm(sm) {
     titleText.setPosition(350, 230);
 
     subtitleText.setFont(subtitleFont);
-    subtitleText.setString("HIGH SCORE");
+    subtitleText.setString("MINIMUM DEATHS");
     subtitleText.setCharacterSize(50);
     subtitleText.setOrigin(subtitleText.getLocalBounds().width/2 , 25);
     subtitleText.setPosition(350, 290);
 
     highScore.setFont(subtitleFont);
-    highScore.setString("0");
+    highScore.setString("NA");
     highScore.setCharacterSize(50);
     highScore.setOrigin(highScore.getLocalBounds().width/2 , 25);
     highScore.setPosition(350, 320);
@@ -30,7 +31,13 @@ SplashState::SplashState(StateManager* sm): sm(sm) {
 }
 
 void SplashState::onActivate(std::string pass) {
-
+    if(pass!="NA" && highScore.getString()!="NA") {
+        int prev; std::stringstream(highScore.getString()) >> prev;
+        int newer; std::stringstream(pass) >> newer;
+        if(newer > prev)
+            pass = highScore.getString();
+    }
+    highScore.setString(pass);
 }
 
 void SplashState::handleInput(const vec2i& mouse) {

@@ -22,6 +22,7 @@ public:
     Enemy(BulletStage* stage);
     void update(float dt) override;
     void draw(sf::RenderWindow& window) const override;
+    bool checkCollission (const vec2f& position, const vec2f& dimension) const;
     virtual void setDirection(const vec2f direction) {
         this->direction = direction;
     }

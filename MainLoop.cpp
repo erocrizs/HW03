@@ -11,7 +11,7 @@ int main()
     StateManager sm;
     sm.addState(new SplashState(&sm));
     sm.addState(new GameState(&sm));
-    sm.push(0);
+    sm.push(0, "NA");
 
     sf::Clock clock;
     float lag = 0;

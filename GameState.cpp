@@ -1,7 +1,8 @@
 #include "StateSubclass.h"
+#include <string>
 #include <iostream>
 
-GameState::GameState(StateManager* sm): sm(sm) {
+GameState::GameState(StateManager* sm): State(sm), sm(sm) {
     sf::Color color(214, 153, 255);
 
     topBorder.setSize(vec2f(700, 5));
@@ -39,7 +40,7 @@ GameState::GameState(StateManager* sm): sm(sm) {
 }
 
 void GameState::onActivate(std::string pass) {
-
+    stage.reset();
 }
 
 void GameState::handleInput(const vec2i& mouse) {
@@ -48,6 +49,11 @@ void GameState::handleInput(const vec2i& mouse) {
 
 void GameState::update(float dt) {
     stage.update(dt);
+    int deathCount = stage.getDeathCount();
+    countText.setString(std::to_string(deathCount));
+    if(stage.getRemainingBossHP()<=0) {
+        popSelf(1, countText.getString());
+    }
 }
 
 void GameState::render(sf::RenderWindow& window) {

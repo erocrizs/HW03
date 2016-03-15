@@ -12,7 +12,9 @@ Player::Player(BulletStage* stage):
     move(PlayerMove::getInstance()),
     shoot(PlayerShoot::getInstance()),
     position(stage->getPosition()+vec2f(0, 200)),
-    dimension(vec2f(20, 30)), speed(300)
+    dimension(vec2f(20, 30)), speed(300),
+    deathCount(0),
+    invulTime(0)
 {
     this->stage = stage;
 
@@ -26,6 +28,14 @@ Player::Player(BulletStage* stage):
 }
 
 void Player::update(float dt) {
+    static int ticker = -1;
+    ticker = (ticker+1)%3;
+    if(isInvul() && ticker==0)
+        showbox.setFillColor(sf::Color(128, 128, 255));
+    else
+        showbox.setFillColor(sf::Color::Blue);
+
+    invulTime = std::max(0.0f, invulTime-dt);
     shootCount = std::min(shootGap, shootCount+dt);
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Z) && shootCount==shootGap)
     {
@@ -43,4 +53,19 @@ void Player::draw(sf::RenderWindow& window) const {
     window.draw(showbox);
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::LShift))
         window.draw(hitbox);
+}
+
+void Player::die() {
+    deathCount++;
+    invulTime = 2.5;
+    position = stage->getPosition()+vec2f(0, 200);
+}
+
+bool Player::checkCollission (const vec2f& position, const vec2f& dimension) const {
+    vec2f disp = this->position-position;
+    float dist = mag(disp);
+    float selfDist = hitbox.getRadius()/2;
+    float otherDist = dimension.x/2;
+
+    return ((selfDist+otherDist)>dist);
 }

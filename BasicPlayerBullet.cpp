@@ -9,6 +9,7 @@ BasicPlayerBullet::BasicPlayerBullet(BulletStage* stage, vec2f position, vec2f d
     dimension(vec2f(15, 15)),
     direction(direction),
     speed(500),
+    damage(5.0),
     spin(0) {
     this->position = position;
     this->stage = stage;
@@ -16,6 +17,7 @@ BasicPlayerBullet::BasicPlayerBullet(BulletStage* stage, vec2f position, vec2f d
     box.setSize(dimension);
     box.setOrigin(dimension/2.0f);
     box.setFillColor(sf::Color::Red);
+    dimension = vec2f(10.6, 10.6);
 }
 
 void BasicPlayerBullet::update(float dt) {

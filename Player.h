@@ -18,6 +18,8 @@ private:
     sf::RectangleShape showbox;
     vec2f position, dimension, direction;
     float speed;
+    int deathCount;
+    float invulTime;
 public:
     Player(BulletStage* stage);
     void update(float dt) override;
@@ -39,6 +41,14 @@ public:
     }
     virtual vec2f getDimension() const {
         return dimension;
+    }
+    int getDeathCount() const {
+        return deathCount;
+    }
+    void die();
+    bool checkCollission (const vec2f& position, const vec2f& dimension) const;
+    bool isInvul() {
+        return invulTime>0;
     }
 };
 

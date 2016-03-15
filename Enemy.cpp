@@ -45,3 +45,17 @@ void Enemy::draw(sf::RenderWindow& window) const {
     window.draw(showbox);
     window.draw(healthBar);
 }
+
+
+bool Enemy::checkCollission (const vec2f& position, const vec2f& dimension) const {
+    vec2f disp = this->position-position;
+
+    float farthestX = std::min(std::max(position.x, (float)(this->position.x+(this->dimension.x/4.0))), (float) (this->position.x-(this->dimension.x/4.0)));
+    float dist = mag(disp);
+    float farthestY = std::min(std::max(position.y, (float)(this->position.y+(this->dimension.y/4.0))), (float) (this->position.y-(this->dimension.y/4.0)));
+
+    float selfDist = mag(vec2f(farthestX, farthestY)-this->position);
+    float otherDist = dimension.x;
+
+    return ((selfDist+otherDist)>dist);
+}

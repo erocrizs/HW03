@@ -37,6 +37,9 @@ public:
     virtual vec2f getDimension() const {
         return dimension;
     }
+    virtual float getDamage() const override {
+        return damage;
+    }
 };
 
 #endif // BASICPLAYERBULLET_H_INCLUDED

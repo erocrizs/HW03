@@ -12,6 +12,7 @@ protected:
 
     void popSelf(unsigned int level=1, std::string pass="");
 public:
+    State(StateManager* sm): sm(sm) {}
     virtual ~State() {};
     virtual void handleInput(const vec2i& mouse) = 0;
     virtual void update(float dt) = 0;

@@ -9,6 +9,30 @@ BulletStage::BulletStage(): dimension(vec2f(490, 690)), position(vec2f(5, 5) + d
     innerBox.setPosition(position);
 }
 
+void BulletStage::reset() {
+
+    player = Player(this);
+    enemy = Enemy(this);
+
+    while(player_bullet.size()>0) {
+        delete player_bullet[0];
+        player_bullet.erase(player_bullet.begin());
+    }
+
+    while(enemy_bullet.size()>0) {
+        delete enemy_bullet[0];
+        enemy_bullet.erase(enemy_bullet.begin());
+    }
+
+    std::vector<PlayerBullet*> player_bullet;
+    std::vector<EnemyBullet*> enemy_bullet;
+
+    innerBox.setFillColor(sf::Color::Black);
+    innerBox.setSize(dimension);
+    innerBox.setOrigin(dimension/2.0f);
+    innerBox.setPosition(position);
+}
+
 void BulletStage::handleInput(const vec2i& mouse) {
 
 }
@@ -22,23 +46,46 @@ void BulletStage::update(float dt) {
         pb->update(dt);
         vec2f pos = pb->getPosition();
         vec2f margin = pb->getDimension() * -2.0f;
-        if(clamp(pos, margin)!=pos) {
+
+        bool hitEnemy = enemy.checkCollission(pb->getPosition(), pb->getDimension());
+        if(hitEnemy)
+            enemy.getDamaged(pb->getDamage());
+
+        if(hitEnemy || clamp(pos, margin)!=pos) {
             delete player_bullet[i];
             player_bullet.erase(player_bullet.begin()+i);
             i--;
         }
     }
 
+    bool died = false;
+    bool deathRecorded = false;
     for(int i=0; i<enemy_bullet.size(); i++)
     {
         EnemyBullet* eb = enemy_bullet[i];
         eb->update(dt);
         vec2f pos = eb->getPosition();
         vec2f margin = eb->getDimension() * -2.0f;
+
+        if(!deathRecorded) {
+            bool died = player.checkCollission(eb->getPosition(), eb->getDimension()) && !player.isInvul();
+            if(died) {
+                deathRecorded = true;
+                player.die();
+            }
+        }
+
         if(clamp(pos, margin)!=pos) {
             delete enemy_bullet[i];
             enemy_bullet.erase(enemy_bullet.begin()+i);
             i--;
+        }
+    }
+    if(deathRecorded)
+    {
+        while(enemy_bullet.size()>0) {
+            delete enemy_bullet[0];
+            enemy_bullet.erase(enemy_bullet.begin());
         }
     }
 }

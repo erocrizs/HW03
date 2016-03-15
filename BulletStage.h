@@ -20,6 +20,7 @@ private:
     std::vector<EnemyBullet*> enemy_bullet;
 public:
     BulletStage();
+    void reset();
     void handleInput(const vec2i& mouse);
     void update(float dt);
     void render(sf::RenderWindow& window) const ;
@@ -28,6 +29,12 @@ public:
     vec2f clamp(const vec2f point, const vec2f dimension) const;
     void addPlayerBullet(PlayerBullet* pb);
     void addEnemyBullet(EnemyBullet* pb);
+    float getRemainingBossHP() const {
+        return enemy.getRemainingHP();
+    }
+    float getDeathCount() const {
+        return player.getDeathCount();
+    }
 };
 
 #endif // BULLETSTAGE_H_INCLUDED

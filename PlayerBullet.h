@@ -21,6 +21,7 @@ public:
     virtual void setPosition(const vec2f position) = 0;
     virtual vec2f getDirection() const = 0;
     virtual vec2f getDimension() const = 0;
+    virtual float getDamage() const = 0;
 };
 
 
