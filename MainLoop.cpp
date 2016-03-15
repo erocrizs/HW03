@@ -6,10 +6,11 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Touhou Clone", sf::Style::Close);
+    sf::RenderWindow window(sf::VideoMode(700, 700), "Touhou Clone", sf::Style::Close);
 
     StateManager sm;
     sm.addState(new SplashState(&sm));
+    sm.addState(new GameState(&sm));
     sm.push(0);
 
     sf::Clock clock;
@@ -31,11 +32,12 @@ int main()
         window.clear();
         sm.render(window);
         window.display();
-
-        float timeSpent = lag + clock.getElapsedTime().asSeconds();
-        if(timeSpent>SPF)
-            lag = timeSpent-SPF;
-        else
+        float timeSpent = clock.getElapsedTime().asSeconds() + lag;
+        if(timeSpent<=SPF) {
+            lag = 0;
             sf::sleep(sf::seconds(SPF-timeSpent));
+        }
+        else
+            lag = timeSpent-SPF;
     }
 }

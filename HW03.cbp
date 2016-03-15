@@ -14,21 +14,44 @@
 				<Compiler>
 					<Add option="-O2" />
 				</Compiler>
-				<Linker>
-					<Add option="-s" />
-				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="BasicEnemyBullet.cpp" />
+		<Unit filename="BasicEnemyBullet.h" />
+		<Unit filename="BasicEnemyMove.cpp" />
+		<Unit filename="BasicEnemyMove.h" />
+		<Unit filename="BasicPlayerBullet.cpp" />
+		<Unit filename="BasicPlayerBullet.h" />
+		<Unit filename="BulletStage.cpp" />
+		<Unit filename="BulletStage.h" />
+		<Unit filename="Enemy.cpp" />
+		<Unit filename="Enemy.h" />
+		<Unit filename="EnemyBullet.h" />
+		<Unit filename="EnemyShoot.cpp" />
+		<Unit filename="EnemyShoot.h" />
+		<Unit filename="Entity.h" />
+		<Unit filename="GameState.cpp" />
 		<Unit filename="MainLoop.cpp" />
+		<Unit filename="MoveBehavior.h" />
+		<Unit filename="Player.cpp" />
+		<Unit filename="Player.h" />
+		<Unit filename="PlayerBullet.h" />
+		<Unit filename="PlayerMove.cpp" />
+		<Unit filename="PlayerMove.h" />
+		<Unit filename="PlayerShoot.cpp" />
+		<Unit filename="PlayerShoot.h" />
+		<Unit filename="ShootBehavior.h" />
 		<Unit filename="SplashState.cpp" />
 		<Unit filename="State.cpp" />
 		<Unit filename="State.h" />
 		<Unit filename="StateManager.cpp" />
 		<Unit filename="StateManager.h" />
 		<Unit filename="StateSubclass.h" />
+		<Unit filename="StraightMovement.cpp" />
+		<Unit filename="StraightMovement.h" />
 		<Unit filename="Vector2Plus.cpp" />
 		<Unit filename="Vector2Plus.h" />
 		<Extensions>
